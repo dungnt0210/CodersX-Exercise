@@ -1,0 +1,23 @@
+<!--  
+Tìm hiểu các method của document:
+- getElementsByClassName
+- getElementsByTagName
+- querySelector
+- querySelectorAll
+-->
+
+<!--
+- getElementsByClassName trả về các đoạn html chứa toàn bộ các phần tử có class với tên được chỉ định
+- getElementsByTagName trả về toàn bộ các đoạn html có tag được chỉ định
+- querySelector trả về phần tử đầu tiên khớp với selector được lựa chọn
+- querySelectorAll trả về một danh sách chứa toàn bộ phần tử khớp với selector
+-->
+
+<!-- 
+1. Property nào của document lưu tham chiếu tới các <img> tags trong trang web
+2. Sử dụng inspector để xem constructor function của một <img> có tên là gì
+-->
+<!--
+1. src
+2. HTMLCollection
+-->
