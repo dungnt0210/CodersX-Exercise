@@ -1,0 +1,26 @@
+<!-- 
+- Sử dụng getElementsByTagName() để lấy ra danh sách các <p> có class là 'foo'
+- Lặp qua các phần tử và thay đổi nội dung của từng phần tử bằng cách append (thêm vào cuối) một đường link tới coders.tokyo site
+-->
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Inner HTML test</title>
+	<meta charset="utf-8">
+</head>
+<body>
+	<p>Paragragh</p>
+	<p class="foo">Paragraph 1 class foo</p>
+	<p class="foo">Paragraph 2 class foo</p>
+	<p class="foo">Paragraph 3 class foo</p>
+  
+	<script type="text/javascript">
+		var para = document.getElementsByTagName('p');
+		for(var i=0 ; i<para.length ;i++){
+			if(para[i].getAttribute('class')==='foo'){
+				para[i].innerHTML+= ' <a href="coders-x.com">coders-x</a>'
+			}
+		}
+	</script>
+</body>
+</html>
