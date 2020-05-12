@@ -1,0 +1,9 @@
+// Viết code sao cho khi nhấn nút clear, nội dung của toàn bộ các field trong form có id là `loginForm` sẽ bị xoá (reset)
+// Gợi ý: form element có method reset() dùng để xoá toàn bộ nội dung
+// Tham khảo: https://developer.mozilla.org/en-US/docs/Web/API/HTMLFormElement
+var formLogin= document.getElementById("loginForm");
+var clearInfor= document.getElementById("clearButton");
+clearInfor.addEventListener("click", clearData);
+function clearData(){
+	 formLogin.reset();
+}
