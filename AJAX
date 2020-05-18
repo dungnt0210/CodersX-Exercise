@@ -1,0 +1,127 @@
+// 1. Sử dụng axios để tải nội dung dưới dạng json từ đường link sau về và hiển ra trình duyệt sử dụng document.write
+// Link: https://randomuser.me/api/
+// Có thể tìm link tới thư viện axios tại: https://cdnjs.com/
+// Để thêm thư viện vào jsfiddle, nhấn vào Resources ở cột trái, nhập link vào rồi ấn (+)
+// 2. Làm tương tự, thay vì dùng axios, hãy dùng fetch (google để biết cách dùng)
+1.var url = 'https://randomuser.me/api/';
+axios.get(url).then(function(res){
+  document.write(JSON.stringify(res.data));
+});
+2.fetch('https://randomuser.me/api/')
+  .then(response => response.json())
+  .then(data => console.log(JSON.stringify(data)));
+  
+  
+ // 1. Tạo một REST api server sử dụng json-server
+// 2. Đọc documentation của json-server và axios, tìm hiểu các method GET, POST, PUT, PATCH, DELETE
+// 3. Làm các ví dụ sử dụng axios để gửi các request lên json-server để tạo object mới, update 1 object với dữ liệu mới, xoá 1 object
+// Lưu ý: đây là một bài khó nếu bạn là beginner, tuy nhiên, khi hiểu được bài này bạn sẽ có thể lên 1 level mới (beginner cao cấp).
+// Hãy dành 1 ngày để đọc, tìm hiểu, thử. Sau 1 ngày nếu bạn không làm được thì có thể hỏi trên Coders.Tokyo Slack hoặc JsLand.
+ 
+ 
+/*{
+  "posts": [
+    {
+      "id": 1,
+      "title": "json-server",
+      "author": "typicode"
+    },
+    {
+      "id": 2,
+      "title": "post-json-server",
+      "author": "pasestars"
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  }
+}
+*/
+
+// Các trường hợp áp dụng:
+// Plural routes:
+// GET    /posts
+// GET    /posts/1
+// POST   /posts
+// PUT    /posts/1
+// PATCH  /posts/1
+// DELETE /posts/1
+// Singular routes
+// GET    /profile
+// POST   /profile
+// PUT    /profile
+// PATCH  /profile
+/* Phương thức GET http://localhost:3080/posts trả về các object trong mảng posts
+  GET http://localhost:3080/posts/1 trả về một object có key id = 1 trong mảng posts
+  GET lấy data từ url tương ứng
+  axios.get('http://localhost:3080/posts')
+.then(function(res){
+	console.log(res.data);
+})
+.catch(function(err){
+ console.log("Error!!!");
+});
+*/
+
+/* Phương thức POST:
+- Gửi object lên json-server
+- Key id được thêm và tăng tự động khi post
+- POST thêm một phần tử vào cuối mảng với plural routes (nhiều route con)
+- POST cập nhật và thay thể object cũ bằng object thêm vào với singular routes( chỉ có 1 route duy nhất)
+var objt= {
+	name: "vanyeudung",
+  location: "vnuxbka"
+};
+axios.post('http://localhost:3080/profile' , objt)
+.then(function(res){
+	console.log(res.data);
+})
+.catch(function(err){
+ console.log("Error!!!");
+});
+*/
+
+/* Phương thức PUT: truyền object và thay thế object này trong json-server
+var objt= {
+	name: "vanlovedung",
+  location: "vnuxbka"
+};
+axios.put('http://localhost:3080/posts/3' , objt)
+.then(function(res){
+	console.log(res.data);
+})
+.catch(function(err){
+ console.log("Error!!!");
+});
+*/
+
+/* Phương thức PATCH: update từng object đơn lẻ
+var objt= {
+	name: "vanyeudung",
+  location: "vnuxbka"
+};
+axios.patch('http://localhost:3080/posts/2' , objt)
+.then(function(res){
+	console.log(res.data);
+})
+.catch(function(err){
+ console.log("Error!!!");
+});
+*/
+
+/* Phương thức DELETE: xóa một phần tử trong plural routes (xóa route)
+axios.delete('http://localhost:3080/posts/1')
+.then(function(res){
+	console.log(res.data);
+})
+.catch(function(err){
+ console.log("Error!!!");
+});
+*/
